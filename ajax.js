@@ -23,7 +23,8 @@ $(document).ready(function () {
     }).done(function(data) {
       $('#step3456').append(data);
       console.log('Got: ' + data)
-    }).fail(function() {
+    }).fail(function(jqXHR) {
+      $('#step3456').append('<em>'+ jqXHR.responseText +'</em><br>')
       $('#step3456').append('FAILURE: Your code is bad, and you should feel bad!');
     }).always(function() {
       $('#step3456').append('<br>Thank you for your kind request.<br>');
