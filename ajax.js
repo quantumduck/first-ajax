@@ -21,11 +21,13 @@ $(document).ready(function () {
       dataType: 'html'
       // data: { limit: 2, stuff: 4 }
     }).done(function(data) {
-      $('#step3456').append(data + '<br>');
+      $('#step3456').append(data);
       console.log('Got: ' + data)
     }).fail(function() {
-      $('#step3456').append('FAILURE: Your code is bad, and you should feel bad!<br>');
-    }).always(function() {});
+      $('#step3456').append('FAILURE: Your code is bad, and you should feel bad!');
+    }).always(function() {
+      $('#step3456').append('<br>Thank you for your kind request.<br>');
+    });
   });
 
 });
