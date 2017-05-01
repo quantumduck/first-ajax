@@ -16,14 +16,27 @@ $(document).ready(function () {
 
   $('#step3456').on('click', function() {
     $.ajax({
-      url: rootURL + 'ping',
+      url: rootURL + pingPong(),
       method: 'GET',
       dataType: 'html'
       // data: { limit: 2, stuff: 4 }
     }).done(function(data) {
-      $('#step3456').append(data);
+      $('#step3456').append(data + '<br>');
       console.log('Got: ' + data)
-    }).fail(function() {}).always(function() {});
+    }).fail(function() {
+      $('#step3456').append('FAILURE: Your code is bad, and you should feel bad!<br>');
+    }).always(function() {});
   });
 
 });
+
+var runNum = 0;
+function pingPong() {
+  if ((runNum % 2) === 0) {
+    runNum++;
+    return 'ping';
+  } else {
+    runNum++;
+    return 'pong';
+  }
+}
