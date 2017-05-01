@@ -45,6 +45,22 @@ $(document).ready(function () {
     });
   });
 
+  $('#step8').on('click', function() {
+    $.ajax({
+      url: rootURL + 'time',
+      method: 'GET',
+      dataType: 'text',
+      data: { timezone: 'America/St_Johns' }
+    }).done(function(time) {
+      $('#step8').append('The time is now: ' + time);
+    }).fail(function() {
+      $('#step8').append('FAILURE: Your code is bad, and you should feel bad!');
+    }).always(function() {
+      $('#step8').append('<br>Thank you for your kind request.<br>');
+    });
+  });
+
+
 });
 
 var runNum = 0;
