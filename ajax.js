@@ -58,6 +58,23 @@ $(document).ready(function () {
     }).always(function() {
       $('#step8').append('<br>Thank you for your kind request.<br>');
     });
+
+    $('#step9').on('click', function() {
+      $.ajax({
+        url: rootURL + 'a_car',
+        method: 'GET',
+        dataType: 'html'
+        // data: { limit: 2, stuff: 4 }
+      }).done(function(car) {
+        $('#step9').append(car);
+      }).fail(function() {
+        $('#step9').append('FAILURE: Your code is bad, and you should feel bad!');
+      }).always(function() {
+        $('#step9').append('Thank you for your kind request.');
+      });
+    });
+
+
   });
 
 
