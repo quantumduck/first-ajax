@@ -14,4 +14,16 @@ $(document).ready(function () {
     });
   });
 
+  $('#step3456').on('click', function() {
+    $.ajax({
+      url: rootURL + 'ping',
+      method: 'GET',
+      dataType: 'html'
+      // data: { limit: 2, stuff: 4 }
+    }).done(function(data) {
+      $('#step3456').append(data);
+      console.log('Got: ' + data)
+    }).fail(function() {}).always(function() {});
+  });
+
 });
